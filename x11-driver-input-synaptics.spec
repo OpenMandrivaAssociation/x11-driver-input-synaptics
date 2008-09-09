@@ -16,8 +16,9 @@ BuildRequires: x11-util-macros
 Conflicts: synaptics
 
 %description
-Synaptics devices are extremely popular on laptops and this driverer
-repsents an MIT licnenced alternative to the GPL synaptics driver
+Synaptics touchpad devices are extremely popular on laptops and this driver
+is an MIT licensed alternative to the older GPL synaptics driver which is
+no longer actively maintained.
 
 %prep
 %setup -q -n xf86-input-synaptics-%{version}
