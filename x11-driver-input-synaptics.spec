@@ -1,5 +1,5 @@
 Name: x11-driver-input-synaptics
-Version: 0.99.2
+Version: 0.99.3
 Release: %mkrel 1
 Summary: X.org input driver for Synaptics touchpad devices
 Group: System/X11
@@ -12,7 +12,8 @@ BuildRoot: %{_tmppath}/%{name}-root
 BuildRequires: x11-proto-devel
 BuildRequires: x11-server-devel
 BuildRequires: x11-util-macros
-Conflicts: synaptics
+Provides: synaptics = %{version}-%{release}
+Obsoletes: synaptics < %{version}-%{release}
 
 %description
 Synaptics touchpad devices are extremely popular on laptops and this driver
