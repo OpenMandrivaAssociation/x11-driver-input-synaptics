@@ -1,10 +1,11 @@
 Name: x11-driver-input-synaptics
 Version: 0.99.3
-Release: %mkrel 2
+Release: %mkrel 3
 Summary: X.org input driver for Synaptics touchpad devices
 Group: System/X11
 URL: http://xorg.freedesktop.org
-Source: xf86-input-synaptics-%{version}.tar.bz2
+Source0: xf86-input-synaptics-%{version}.tar.bz2
+Source1: 10-synaptics.fdi
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
@@ -40,6 +41,9 @@ autoreconf
 rm -rf %{buildroot}
 %makeinstall_std
 
+install -d %{buildroot}%{_datadir}/hal/fdi/policy/20thirdparty
+install -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/hal/fdi/policy/20thirdparty
+
 %clean
 rm -rf %{buildroot}
 
@@ -47,6 +51,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_bindir}/synclient
 %{_bindir}/syndaemon
+%{_datadir}/hal/fdi/policy/20thirdparty/10-synaptics.fdi
 %{_libdir}/xorg/modules/input/synaptics_drv.la
 %{_libdir}/xorg/modules/input/synaptics_drv.so
 %{_mandir}/man1/synclient.*
