@@ -13,6 +13,7 @@ BuildRoot: %{_tmppath}/%{name}-root
 BuildRequires: x11-proto-devel
 BuildRequires: x11-server-devel
 BuildRequires: x11-util-macros
+BuildRequires: libxi-devel
 Provides: synaptics = %{version}-%{release}
 Obsoletes: synaptics < %{version}-%{release}
 
