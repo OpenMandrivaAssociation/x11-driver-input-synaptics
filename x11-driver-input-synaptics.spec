@@ -1,5 +1,5 @@
 Name: x11-driver-input-synaptics
-Version: 1.0.99.4
+Version: 1.1.0
 Release: %mkrel 1
 Summary: X.org input driver for Synaptics touchpad devices
 Group: System/X11
