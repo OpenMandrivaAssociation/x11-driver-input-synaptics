@@ -1,12 +1,11 @@
 Name: x11-driver-input-synaptics
-Version: 1.2.2
-Release: %mkrel 2
+Version: 1.3.0
+Release: %mkrel 1
 Summary: X.org input driver for Synaptics touchpad devices
 Group: System/X11
 URL: http://xorg.freedesktop.org
 Source0: xf86-input-synaptics-%{version}.tar.bz2
 Source1: 10-synaptics.fdi
-Patch1: 0001-Change-default-settings-TapButtonX-X-VertTwoFinger.patch
 Patch2: 0002-When-appling-changes-via-property-mode-apply-to-all.patch
 
 License: MIT
@@ -34,7 +33,6 @@ Development files for programing with the xorg synaptics driver
 
 %prep
 %setup -q -n xf86-input-synaptics-%{version}
-%patch1 -p1
 %patch2 -p1
 
 %build
