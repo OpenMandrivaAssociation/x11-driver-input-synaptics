@@ -60,6 +60,7 @@ rm -rf %{buildroot}
 %{_mandir}/man1/synclient.*
 %{_mandir}/man1/syndaemon.*
 %{_mandir}/man4/synaptics.*
+%{_datadir}/hal/fdi/policy/20thirdparty/11-x11-synaptics.fdi
 
 %files devel
 %defattr(-,root,root)
