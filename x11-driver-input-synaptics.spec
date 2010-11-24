@@ -1,6 +1,6 @@
 Name: x11-driver-input-synaptics
 Version: 1.3.0
-Release: %mkrel 3
+Release: %mkrel 4
 Summary: X.org input driver for Synaptics touchpad devices
 Group: System/X11
 URL: http://xorg.freedesktop.org
@@ -15,6 +15,7 @@ BuildRequires: x11-proto-devel
 BuildRequires: x11-server-devel
 BuildRequires: x11-util-macros >= 1.3.0
 BuildRequires: libxi-devel
+BuildRequires: libxtst-devel
 Provides: synaptics = %{version}-%{release}
 Obsoletes: synaptics < %{version}-%{release}
 
