@@ -40,8 +40,7 @@ Development files for programing with the xorg synaptics driver
 %apply_patches
 
 %build
-autoreconf
-%configure
+%configure2_5x
 %make
 
 %install
