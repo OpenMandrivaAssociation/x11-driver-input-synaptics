@@ -1,10 +1,10 @@
 Name: x11-driver-input-synaptics
-Version: 1.4.0
-Release: %mkrel 3
+Version: 1.4.1
+Release: %mkrel 1
 Summary: X.org input driver for Synaptics touchpad devices
 Group: System/X11
 URL: http://xorg.freedesktop.org
-Source0: xf86-input-synaptics-%{version}.tar.bz2
+Source0: http://xorg.freedesktop.org/releases/individual/driver/xf86-input-synaptics-%{version}.tar.bz2
 Source1: 10-synaptics.fdi
 Patch1: 0001-Always-enable-tapping-and-vertical-edge-scroll.patch
 Patch2: 0002-When-appling-changes-via-property-mode-apply-to-all.patch
