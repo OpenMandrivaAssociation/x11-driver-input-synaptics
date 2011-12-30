@@ -1,25 +1,22 @@
 Name: x11-driver-input-synaptics
 Version: 1.5.0
-Release: %mkrel 2
+Release: 3
 Summary: X.org input driver for Synaptics touchpad devices
 Group: System/X11
+License: MIT
 URL: http://xorg.freedesktop.org
 Source0: http://xorg.freedesktop.org/releases/individual/driver/xf86-input-synaptics-%{version}.tar.bz2
 Source1: 10-synaptics.fdi
 Patch1: 0001-Always-enable-tapping-and-vertical-edge-scroll.patch
-Patch2: 0002-When-appling-changes-via-property-mode-apply-to-all.patch
 
-License: MIT
-BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: x11-proto-devel
 BuildRequires: x11-server-devel
 BuildRequires: x11-util-macros >= 1.3.0
 BuildRequires: libxi-devel
 BuildRequires: libxtst-devel
-Provides: synaptics = %{version}-%{release}
-Obsoletes: synaptics < %{version}-%{release}
 
+%rename synaptics
 Requires: x11-server-common %(xserver-sdk-abi-requires xinput)
 
 %description
@@ -34,9 +31,8 @@ Group:          Development/C
 %description devel
 Development files for programing with the xorg synaptics driver
 
-
 %prep
-%setup -q -n xf86-input-synaptics-%{version}
+%setup -qn xf86-input-synaptics-%{version}
 %apply_patches
 
 %build
@@ -46,15 +42,12 @@ Development files for programing with the xorg synaptics driver
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 install -d %{buildroot}%{_datadir}/hal/fdi/policy/20thirdparty
 install -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/hal/fdi/policy/20thirdparty
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %{_bindir}/synclient
 %{_bindir}/syndaemon
 %{_datadir}/hal/fdi/policy/20thirdparty/10-synaptics.fdi
@@ -66,7 +59,7 @@ rm -rf %{buildroot}
 %{_datadir}/X11/xorg.conf.d/50-synaptics.conf
 
 %files devel
-%defattr(-,root,root)
 %{_includedir}/xorg/synaptics.h
 %{_includedir}/xorg/synaptics-properties.h
 %{_libdir}/pkgconfig/xorg-synaptics.pc
+
