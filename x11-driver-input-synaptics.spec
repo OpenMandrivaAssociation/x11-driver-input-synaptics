@@ -51,7 +51,6 @@ install -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/hal/fdi/policy/20thirdparty
 %{_bindir}/synclient
 %{_bindir}/syndaemon
 %{_datadir}/hal/fdi/policy/20thirdparty/10-synaptics.fdi
-%{_libdir}/xorg/modules/input/synaptics_drv.la
 %{_libdir}/xorg/modules/input/synaptics_drv.so
 %{_mandir}/man1/synclient.*
 %{_mandir}/man1/syndaemon.*
