@@ -1,6 +1,6 @@
 Name: x11-driver-input-synaptics
-Version: 1.5.2
-Release: 2
+Version: 1.6.1
+Release: 1
 Summary: X.org input driver for Synaptics touchpad devices
 Group: System/X11
 License: MIT
@@ -15,6 +15,7 @@ BuildRequires: x11-server-devel >= 1.12
 BuildRequires: x11-util-macros >= 1.3.0
 BuildRequires: libxi-devel
 BuildRequires: libxtst-devel
+BuildRequires: mtdev-devel
 
 %rename synaptics
 Requires: x11-server-common %(xserver-sdk-abi-requires xinput)
@@ -33,7 +34,7 @@ Development files for programing with the xorg synaptics driver
 
 %prep
 %setup -qn xf86-input-synaptics-%{version}
-%apply_patches
+#% apply_patches
 
 %build
 %configure2_5x
