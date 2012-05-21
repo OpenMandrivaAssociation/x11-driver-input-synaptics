@@ -13,9 +13,9 @@ Patch1: 0001-Always-enable-tapping-and-vertical-edge-scroll.patch
 BuildRequires: x11-proto-devel
 BuildRequires: x11-server-devel >= 1.12
 BuildRequires: x11-util-macros >= 1.3.0
-BuildRequires: libxi-devel
-BuildRequires: libxtst-devel
-BuildRequires: mtdev-devel
+BuildRequires: pkgconfig(xi)
+BuildRequires: pkgconfig(xtst)
+BuildRequires: pkgconfig(mtdev)
 
 %rename synaptics
 Requires: x11-server-common %(xserver-sdk-abi-requires xinput)
