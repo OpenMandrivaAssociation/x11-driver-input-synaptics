@@ -1,6 +1,6 @@
 Name: x11-driver-input-synaptics
 Version: 1.6.2
-Release: 2
+Release: 3
 Summary: X.org input driver for Synaptics touchpad devices
 Group: System/X11
 License: MIT
@@ -11,7 +11,7 @@ Patch1: 0001-Always-enable-tapping-and-vertical-edge-scroll.patch
 
 
 BuildRequires: x11-proto-devel
-BuildRequires: x11-server-devel >= 1.12
+BuildRequires: pkgconfig(xorg-server) >= 1.13
 BuildRequires: x11-util-macros >= 1.3.0
 BuildRequires: pkgconfig(xi)
 BuildRequires: pkgconfig(xtst)
