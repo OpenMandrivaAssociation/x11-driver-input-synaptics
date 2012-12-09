@@ -1,19 +1,7 @@
-From c0b5462cfe92941beb71785074e146e937f6394d Mon Sep 17 00:00:00 2001
-From: Paulo Zanoni <pzanoni@mandriva.com>
-Date: Tue, 28 Dec 2010 14:45:28 -0200
-Subject: [PATCH] Always enable tapping and vertical edge scroll
-
-Always disable vertical two finger scroll too.
----
- src/synaptics.c |   10 +++++-----
- 1 files changed, 5 insertions(+), 5 deletions(-)
-
-diff --git a/src/synaptics.c b/src/synaptics.c
-index 53c3685..f93c906 100644
---- a/src/synaptics.c
-+++ b/src/synaptics.c
-@@ -482,9 +482,9 @@ static void set_default_parameters(LocalDevicePtr local)
-     emulateTwoFingerMinW = priv->minw + range * (7.0/16);
+--- a/src/synaptics.c	2012-09-12 18:28:09.000000000 +0400
++++ b/src/synaptics.c	2012-11-19 17:25:12.678030888 +0400
+@@ -578,9 +578,9 @@
+     emulateTwoFingerMinW = priv->minw + range * (7.0 / 16);
  
      /* Enable tap if we don't have a phys left button */
 -    tapButton1 = priv->has_left ? 0 : 1;
@@ -25,7 +13,7 @@ index 53c3685..f93c906 100644
  
      /* Enable multifinger-click if only have one physical button,
         otherwise clickFinger is always button 1. */
-@@ -493,11 +493,11 @@ static void set_default_parameters(LocalDevicePtr local)
+@@ -589,11 +589,11 @@
      clickFinger3 = (priv->has_right || priv->has_middle) ? 1 : 2;
  
      /* Enable vert edge scroll if we can't detect doubletap */
@@ -39,6 +27,3 @@ index 53c3685..f93c906 100644
      horizTwoFingerScroll = FALSE;
  
      /* Use resolution reported by hardware if available */
--- 
-1.7.1
-
