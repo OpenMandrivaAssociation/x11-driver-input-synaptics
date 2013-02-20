@@ -1,24 +1,29 @@
-%define name x11-driver-input-synaptics
-%define version 1.6.2
-%define rel 3
-%define git 20120912
+%define rel 1
 
-%if %{git}
+%bcond_with git
+
+%if %{with git}
+%define git 20120912
 %define distname %{name}+git%{git}
-%define release 2.%{git}.%rel
+%define release 1.%{git}.%rel
 %else
 %define distname %{name}-%{version}
-%define release %mkrel %rel
+%define release %rel
 %endif
 
-Name: %{name}
-Version: %{version}
+Name: x11-driver-input-synaptics
+Version: 1.6.3
 Release: %{release}
 Summary: X.org input driver for Synaptics touchpad devices
 Group: System/X11
 License: MIT
 URL: http://xorg.freedesktop.org
+%if %{with git}
 Source0: http://xorg.freedesktop.org/releases/individual/driver/xf86-input-synaptics-%{version}+git%{git}.tar.bz2
+%else
+Source0: http://xorg.freedesktop.org/releases/individual/driver/xf86-input-synaptics-%{version}.tar.bz2
+%endif
+
 Source3:        50-synaptics.conf
 Source4:        70-touchpad-quirks.rules
 #Mandriva/ROSA patches
@@ -48,14 +53,14 @@ Group:          Development/C
 Development files for programing with the xorg synaptics driver
 
 %prep
-%if %{git}
+%if %{with git}
 %setup -qn xf86-input-synaptics-%{version}+git%{git}
 %else
 %setup -qn xf86-input-synaptics-%{version}
 %endif
 %apply_patches
 
-%if %{git}
+%if %{with git}
 autoreconf -fi
 %endif
 

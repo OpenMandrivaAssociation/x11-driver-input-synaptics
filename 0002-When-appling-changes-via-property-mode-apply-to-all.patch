@@ -1,18 +1,19 @@
---- a/tools/synclient.c	2012-09-12 18:28:09.000000000 +0400
-+++ b/tools/synclient.c	2012-11-19 17:44:37.703902390 +0400
-@@ -154,9 +154,9 @@
+diff -p -up ./tools/synclient.c.tv2 ./tools/synclient.c
+--- ./tools/synclient.c.tv2	2012-05-11 03:20:14.000000000 +0200
++++ ./tools/synclient.c	2012-05-31 08:55:40.863476286 +0200
+@@ -167,9 +167,9 @@ parse_cmd(char *cmd, struct Parameter **
          int j;
          int found = 0;
  
 -        *eqp = 0;
-+        size_t size = (eqp - cmd);
++	size_t size = (eqp - cmd);
          for (j = 0; params[j].name; j++) {
 -            if (strcasecmp(cmd, params[j].name) == 0) {
-+            if (strncasecmp(cmd, params[j].name, size) == 0) {
++	    if (strncasecmp(cmd, params[j].name, size) == 0) {
                  found = 1;
                  break;
              }
-@@ -239,7 +239,7 @@
+@@ -354,7 +354,7 @@ dp_init()
  }
  
  static XDevice *
@@ -21,7 +22,7 @@
  {
      XDevice *dev = NULL;
      XDeviceInfo *info = NULL;
-@@ -249,6 +249,7 @@
+@@ -364,6 +364,7 @@ dp_get_device(Display * dpy)
      Atom *properties = NULL;
      int nprops = 0;
      int error = 0;
@@ -29,18 +30,18 @@
  
      touchpad_type = XInternAtom(dpy, XI_TOUCHPAD, True);
      synaptics_property = XInternAtom(dpy, SYNAPTICS_PROP_EDGES, True);
-@@ -256,6 +257,10 @@
+@@ -371,6 +372,10 @@ dp_get_device(Display * dpy)
  
      while (ndevices--) {
          if (info[ndevices].type == touchpad_type) {
 +	    if (idx > 0) {
 +		--idx;
 +		continue;
-+	    }			
++	    }
              dev = XOpenDevice(dpy, info[ndevices].id);
              if (!dev) {
                  fprintf(stderr, "Failed to open device '%s'.\n",
-@@ -291,7 +296,8 @@
+@@ -406,7 +411,8 @@ dp_get_device(Display * dpy)
      XFree(properties);
      XFreeDeviceList(info);
      if (!dev)
@@ -50,20 +51,20 @@
      else if (error && dev) {
          XCloseDevice(dpy, dev);
          dev = NULL;
-@@ -475,6 +481,7 @@
-     int c;
+@@ -596,6 +602,7 @@ main(int argc, char *argv[])
+     int do_monitor = 0;
      int dump_settings = 0;
      int first_cmd;
 +    int idx = 0;
  
      Display *dpy;
      XDevice *dev;
-@@ -501,14 +508,33 @@
-         usage();
+@@ -631,14 +638,33 @@ main(int argc, char *argv[])
+         shm_process_commands(do_monitor, delay);
  
      dpy = dp_init();
 -    if (!dpy || !(dev = dp_get_device(dpy)))
-+	if (!dpy)
++    if (!dpy)
          return 1;
  
 -    dp_set_variables(dpy, dev, argc, argv, first_cmd);
@@ -97,3 +98,4 @@
      XCloseDisplay(dpy);
  
      return 0;
+
