@@ -57,7 +57,8 @@ install -m644 %{SOURCE4} -D %{buildroot}/lib/udev/rules.d/70-touchpad-quirks.rul
 /lib/udev/rules.d/70-touchpad-quirks.rules
 
 %files devel
-%{_includedir}/xorg/synaptics.h
+#removed since 1.7.0
+#% {_includedir}/xorg/synaptics.h
 %{_includedir}/xorg/synaptics-properties.h
 %{_libdir}/pkgconfig/xorg-synaptics.pc
 
