@@ -1,6 +1,6 @@
 Name:		x11-driver-input-synaptics
-Version:	1.6.3
-Release:	3
+Version:	1.7.0
+Release:	1
 Summary:	X.org input driver for Synaptics touchpad devices
 Group:		System/X11
 License:	MIT
