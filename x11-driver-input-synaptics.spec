@@ -9,9 +9,6 @@ Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-input-synap
 
 Source3:        50-synaptics.conf
 Source4:        70-touchpad-quirks.rules
-#Mandriva/ROSA patches
-Patch0:		0001-Always-enable-tapping-and-vertical-edge-scroll.patch
-Patch1:		0002-When-appling-changes-via-property-mode-apply-to-all.patch
 
 BuildRequires:	x11-proto-devel
 BuildRequires:	x11-server-devel >= 1.12
