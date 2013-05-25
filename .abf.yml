@@ -1,4 +1,2 @@
-removed_sources:
-  xf86-input-synaptics-1.6.3.tar.bz2: 2aaeca3abef245ade1435bcf87bbad6116e8e319
 sources:
-  xf86-input-synaptics-1.7.0.tar.bz2: 404b649f76b97787d0409299215afef1de8d23d7
+  xf86-input-synaptics-1.7.1.tar.bz2: 85018b51dfa0c2dcf5c257cf283298836273700d
