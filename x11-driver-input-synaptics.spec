@@ -1,5 +1,5 @@
 Name:		x11-driver-input-synaptics
-Version:	1.7.0
+Version:	1.7.1
 Release:	1
 Summary:	X.org input driver for Synaptics touchpad devices
 Group:		System/X11
@@ -7,8 +7,8 @@ License:	MIT
 URL:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-input-synaptics-%{version}.tar.bz2
 
-Source3:        50-synaptics.conf
-Source4:        70-touchpad-quirks.rules
+Source3:	50-synaptics.conf
+Source4:	70-touchpad-quirks.rules
 
 BuildRequires:	x11-proto-devel
 BuildRequires:	x11-server-devel >= 1.12
@@ -24,9 +24,9 @@ Synaptics touchpad devices are extremely popular on laptops and this driver
 is an MIT licensed alternative to the older GPL synaptics driver which is
 no longer actively maintained.
 
-%package	devel
-Summary:        Development files for programing with the xorg synaptics driver
-Group:          Development/C
+%package devel
+Summary:		Development files for programing with the xorg synaptics driver
+Group:			Development/C
 
 %description devel
 Development files for programing with the xorg synaptics driver
