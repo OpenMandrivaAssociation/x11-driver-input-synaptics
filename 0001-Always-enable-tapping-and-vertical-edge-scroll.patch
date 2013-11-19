@@ -1,0 +1,44 @@
+From c0b5462cfe92941beb71785074e146e937f6394d Mon Sep 17 00:00:00 2001
+From: Paulo Zanoni <pzanoni@mandriva.com>
+Date: Tue, 28 Dec 2010 14:45:28 -0200
+Subject: [PATCH] Always enable tapping and vertical edge scroll
+
+Always disable vertical two finger scroll too.
+---
+ src/synaptics.c |   10 +++++-----
+ 1 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/src/synaptics.c b/src/synaptics.c
+index 53c3685..f93c906 100644
+--- a/src/synaptics.c
++++ b/src/synaptics.c
+@@ -663,9 +663,9 @@ set_default_parameters(InputInfoPtr pInf
+     emulateTwoFingerMinW = priv->minw + range * (7.0 / 16);
+ 
+     /* Enable tap if we don't have a phys left button */
+-    tapButton1 = priv->has_left ? 0 : 1;
+-    tapButton2 = priv->has_left ? 0 : 3;
+-    tapButton3 = priv->has_left ? 0 : 2;
++    tapButton1 = 1; /*priv->has_left ? 0 : 1;*/
++    tapButton2 = 3; /*priv->has_left ? 0 : 3;*/
++    tapButton3 = 2; /*priv->has_left ? 0 : 2;*/
+ 
+     /* Enable multifinger-click if only have one physical button,
+        otherwise clickFinger is always button 1. */
+@@ -674,11 +674,11 @@ set_default_parameters(InputInfoPtr pInf
+     clickFinger3 = (priv->has_right || priv->has_middle) ? 1 : 2;
+ 
+     /* Enable vert edge scroll if we can't detect doubletap */
+-    vertEdgeScroll = priv->has_double ? FALSE : TRUE;
++    vertEdgeScroll = TRUE; /*priv->has_double ? FALSE : TRUE;*/
+     horizEdgeScroll = FALSE;
+ 
+     /* Enable twofinger scroll if we can detect doubletap */
+-    vertTwoFingerScroll = priv->has_double ? TRUE : FALSE;
++    vertTwoFingerScroll = FALSE; /*priv->has_double ? TRUE : FALSE;*/
+     horizTwoFingerScroll = FALSE;
+ 
+     /* Use resolution reported by hardware if available */
+-- 
+1.7.1
+
