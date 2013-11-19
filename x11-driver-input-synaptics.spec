@@ -34,7 +34,7 @@ Development files for programing with the xorg synaptics driver.
 %prep
 %setup -qn xf86-input-synaptics-%{version}
 %apply_patches
-autorefonf -fi
+autoreconf -fi
 
 %build
 %configure2_5x
