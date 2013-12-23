@@ -1,3 +1,6 @@
+# The Xorg driver gets some symbols from the X server binary
+%define _disable_ld_no_undefined 1
+
 Name:		x11-driver-input-synaptics
 Version:	1.7.2
 Release:	2
