@@ -2,7 +2,7 @@
 %define _disable_ld_no_undefined 1
 
 Name:		x11-driver-input-synaptics
-Version:	1.7.4
+Version:	1.7.99.2
 Release:	1
 Summary:	X.org input driver for Synaptics touchpad devices
 Group:		System/X11
@@ -19,6 +19,7 @@ BuildRequires:	x11-util-macros >= 1.3.0
 BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(mtdev)
+BuildRequires:	pkgconfig(libevdev)
 Requires:	x11-server-common %(xserver-sdk-abi-requires xinput)
 %rename		synaptics
 
