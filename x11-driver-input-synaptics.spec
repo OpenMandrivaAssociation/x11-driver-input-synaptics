@@ -2,7 +2,7 @@
 %define _disable_ld_no_undefined 1
 
 Name:		x11-driver-input-synaptics
-Version:	1.7.4
+Version:	1.7.6
 Release:	1
 Summary:	X.org input driver for Synaptics touchpad devices
 Group:		System/X11
