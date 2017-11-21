@@ -2,8 +2,8 @@
 %define _disable_ld_no_undefined 1
 
 Name:		x11-driver-input-synaptics
-Version:	1.8.3
-Release:	3
+Version:	1.9.0
+Release:	1
 Summary:	X.org input driver for Synaptics touchpad devices
 Group:		System/X11
 License:	MIT
@@ -57,6 +57,7 @@ install -m644 %{SOURCE4} -D %{buildroot}/lib/udev/rules.d/70-touchpad-quirks.rul
 %{_mandir}/man1/syndaemon.*
 %{_mandir}/man4/synaptics.*
 %{_datadir}/X11/xorg.conf.d/50-synaptics.conf
+%{_datadir}/X11/xorg.conf.d/70-synaptics.conf
 /lib/udev/rules.d/70-touchpad-quirks.rules
 
 %files devel
