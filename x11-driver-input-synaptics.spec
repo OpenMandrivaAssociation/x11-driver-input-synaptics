@@ -3,7 +3,7 @@
 
 Name:		x11-driver-input-synaptics
 Version:	1.9.1
-Release:	2
+Release:	3
 Summary:	X.org input driver for Synaptics touchpad devices
 Group:		System/X11
 License:	MIT
@@ -37,14 +37,14 @@ Development files for programing with the xorg synaptics driver.
 
 %prep
 %setup -qn xf86-input-synaptics-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 %configure
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 install -m644 %{SOURCE3} -D %{buildroot}%{_datadir}/X11/xorg.conf.d/50-synaptics.conf
 install -m644 %{SOURCE4} -D %{buildroot}/lib/udev/rules.d/70-touchpad-quirks.rules
