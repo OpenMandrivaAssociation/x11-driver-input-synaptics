@@ -2,13 +2,13 @@
 %define _disable_ld_no_undefined 1
 
 Name:		x11-driver-input-synaptics
-Version:	1.9.1
-Release:	5
+Version:	1.9.2
+Release:	1
 Summary:	X.org input driver for Synaptics touchpad devices
 Group:		System/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
-Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-input-synaptics-%{version}.tar.bz2
+Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-input-synaptics-%{version}.tar.xz
 Source3:	50-synaptics.conf
 Source4:	70-touchpad-quirks.rules
 Patch1:		0001-Always-enable-tapping-and-vertical-edge-scroll.patch
