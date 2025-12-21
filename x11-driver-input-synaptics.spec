@@ -13,6 +13,11 @@ Source3:	50-synaptics.conf
 Source4:	70-touchpad-quirks.rules
 Patch1:		0001-Always-enable-tapping-and-vertical-edge-scroll.patch
 Patch2:		0002-When-appling-changes-via-property-mode-apply-to-all.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	x11-proto-devel
 BuildRequires:	x11-server-devel >= 1.18
 BuildRequires:	x11-util-macros >= 1.3.0
